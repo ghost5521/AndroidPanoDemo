@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".ActivityMain">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="使用之前请手动授予app存储权限" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_vertical"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="50dp"
+        android:text="竖拍全景"
+        android:textColor="@color/colorPrimaryDark" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_3x3"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:text="9宫格全景"
+        android:textColor="@color/colorPrimaryDark" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_360"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:text="360全景"
+        android:textColor="@color/colorPrimaryDark" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_ste"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:text="小行星全景"
+        android:textColor="@color/colorPrimaryDark" />
+</LinearLayout>
