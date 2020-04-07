@@ -5,6 +5,7 @@ import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.TextView;
 
 import com.lerp.pano.ImagesStitch;
 import com.lerp.view.GLPanorama;
@@ -13,10 +14,9 @@ import com.shizhefei.view.largeimage.factory.FileBitmapDecoderFactory;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import static com.lerp.pano.ImagesStitch.TYPE_CYLINDRICAL;
 import static com.lerp.pano.ImagesStitch.TYPE_PANINI;
 
-public class Activity360 extends AppCompatActivity {
+public class PanoramaActivity extends AppCompatActivity {
 
     private FrameLayout mViewGroup;
 
@@ -29,19 +29,21 @@ public class Activity360 extends AppCompatActivity {
         final View progressBar = findViewById(R.id.progress_bar);
         mViewGroup = findViewById(R.id.root_view);
 
+        TextView tvMessage = findViewById(R.id.tv_message);
+        tvMessage.setText("合成一张360度全景照片，具体拍摄的方式可以自己设定，不同的相机需要自己调整参数。先竖向拼接，再横向拼接成一张，最后处理成一张2:1的全景照片。");
+
         new Thread(new Runnable() {
             @Override
             public void run() {
-                Bitmap[] bitmaps = new Bitmap[4];
-                bitmaps[0] = BitmapUtils.getBitmap(Activity360.this, "PANO0001.JPG");
-                bitmaps[1] = BitmapUtils.getBitmap(Activity360.this, "PANO0002.JPG");
-                bitmaps[2] = BitmapUtils.getBitmap(Activity360.this, "PANO0003.JPG");
-                bitmaps[3] = BitmapUtils.getBitmap(Activity360.this, "PANO0004.JPG");
+                Bitmap[] bitmaps = new Bitmap[3];
+                bitmaps[0] = BitmapUtils.getBitmap(PanoramaActivity.this, "medium01.jpg");
+                bitmaps[1] = BitmapUtils.getBitmap(PanoramaActivity.this, "medium02.jpg");
+                bitmaps[2] = BitmapUtils.getBitmap(PanoramaActivity.this, "medium03.jpg");
 
                 final String image_1 = ActivityMain.DIR + "image_1.jpg";
                 ImagesStitch.stitchImagesFromBitmaps(bitmaps, image_1,
-                        TYPE_CYLINDRICAL, ImagesStitch.CORRECTION_VERT,
-                        0.18f, 0, 300, 0.5f);
+                        TYPE_PANINI, ImagesStitch.CORRECTION_VERT,
+                        0.2f, 0, 300, 0.5f);
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
@@ -49,15 +51,14 @@ public class Activity360 extends AppCompatActivity {
                     }
                 });
 
-                bitmaps = new Bitmap[3];
-                bitmaps[0] = BitmapUtils.getBitmap(Activity360.this, "PANO0005.JPG");
-                bitmaps[1] = BitmapUtils.getBitmap(Activity360.this, "PANO0006.JPG");
-                bitmaps[2] = BitmapUtils.getBitmap(Activity360.this, "PANO0007.JPG");
+                bitmaps[0] = BitmapUtils.getBitmap(PanoramaActivity.this, "medium04.jpg");
+                bitmaps[1] = BitmapUtils.getBitmap(PanoramaActivity.this, "medium05.jpg");
+                bitmaps[2] = BitmapUtils.getBitmap(PanoramaActivity.this, "medium06.jpg");
                 final String image_2 = ActivityMain.DIR + "image_2.jpg";
 
                 ImagesStitch.stitchImagesFromBitmaps(bitmaps, image_2,
                         TYPE_PANINI, ImagesStitch.CORRECTION_VERT,
-                        0.18f, 0, 300, 0.5f);
+                        0.2f, 0, 300, 0.5f);
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
@@ -65,14 +66,14 @@ public class Activity360 extends AppCompatActivity {
                     }
                 });
 
-                bitmaps[0] = BitmapUtils.getBitmap(Activity360.this, "PANO0008.JPG");
-                bitmaps[1] = BitmapUtils.getBitmap(Activity360.this, "PANO0009.JPG");
-                bitmaps[2] = BitmapUtils.getBitmap(Activity360.this, "PANO0010.JPG");
+                bitmaps[0] = BitmapUtils.getBitmap(PanoramaActivity.this, "medium07.jpg");
+                bitmaps[1] = BitmapUtils.getBitmap(PanoramaActivity.this, "medium08.jpg");
+                bitmaps[2] = BitmapUtils.getBitmap(PanoramaActivity.this, "medium09.jpg");
                 final String image_3 = ActivityMain.DIR + "image_3.jpg";
 
                 ImagesStitch.stitchImagesFromBitmaps(bitmaps, image_3,
                         TYPE_PANINI, ImagesStitch.CORRECTION_VERT,
-                        0.18f, 0, 300, 0.5f);
+                        0.2f, 0, 300, 0.5f);
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
@@ -80,14 +81,14 @@ public class Activity360 extends AppCompatActivity {
                     }
                 });
 
-                bitmaps[0] = BitmapUtils.getBitmap(Activity360.this, "PANO0011.JPG");
-                bitmaps[1] = BitmapUtils.getBitmap(Activity360.this, "PANO0012.JPG");
-                bitmaps[2] = BitmapUtils.getBitmap(Activity360.this, "PANO0013.JPG");
+                bitmaps[0] = BitmapUtils.getBitmap(PanoramaActivity.this, "medium10.jpg");
+                bitmaps[1] = BitmapUtils.getBitmap(PanoramaActivity.this, "medium11.jpg");
+                bitmaps[2] = BitmapUtils.getBitmap(PanoramaActivity.this, "medium12.jpg");
                 final String image_4 = ActivityMain.DIR + "image_4.jpg";
 
                 ImagesStitch.stitchImagesFromBitmaps(bitmaps, image_4,
                         TYPE_PANINI, ImagesStitch.CORRECTION_VERT,
-                        0.18f, 0, 300, 0.5f);
+                        0.2f, 0, 300, 0.5f);
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
@@ -95,16 +96,15 @@ public class Activity360 extends AppCompatActivity {
                     }
                 });
 
-                bitmaps = new Bitmap[4];
-                bitmaps[0] = BitmapUtils.getBitmap(Activity360.this, "PANO0014.JPG");
-                bitmaps[1] = BitmapUtils.getBitmap(Activity360.this, "PANO0015.JPG");
-                bitmaps[2] = BitmapUtils.getBitmap(Activity360.this, "PANO0016.JPG");
-                bitmaps[3] = BitmapUtils.getBitmap(Activity360.this, "PANO0017.JPG");
+                bitmaps = new Bitmap[3];
+                bitmaps[0] = BitmapUtils.getBitmap(PanoramaActivity.this, "medium13.jpg");
+                bitmaps[1] = BitmapUtils.getBitmap(PanoramaActivity.this, "medium14.jpg");
+                bitmaps[2] = BitmapUtils.getBitmap(PanoramaActivity.this, "medium15.jpg");
                 final String image_5 = ActivityMain.DIR + "image_5.jpg";
 
                 ImagesStitch.stitchImagesFromBitmaps(bitmaps, image_5,
-                        TYPE_CYLINDRICAL, ImagesStitch.CORRECTION_VERT,
-                        0.18f, 0, 300, 0.5f);
+                        TYPE_PANINI, ImagesStitch.CORRECTION_VERT,
+                        0.2f, 0, 300, 0.5f);
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
@@ -113,14 +113,14 @@ public class Activity360 extends AppCompatActivity {
                 });
 
                 bitmaps = new Bitmap[3];
-                bitmaps[0] = BitmapUtils.getBitmap(Activity360.this, "PANO0018.JPG");
-                bitmaps[1] = BitmapUtils.getBitmap(Activity360.this, "PANO0019.JPG");
-                bitmaps[2] = BitmapUtils.getBitmap(Activity360.this, "PANO0020.JPG");
+                bitmaps[0] = BitmapUtils.getBitmap(PanoramaActivity.this, "medium16.jpg");
+                bitmaps[1] = BitmapUtils.getBitmap(PanoramaActivity.this, "medium17.jpg");
+                bitmaps[2] = BitmapUtils.getBitmap(PanoramaActivity.this, "medium18.jpg");
                 final String image_6 = ActivityMain.DIR + "image_6.jpg";
 
                 ImagesStitch.stitchImagesFromBitmaps(bitmaps, image_6,
                         TYPE_PANINI, ImagesStitch.CORRECTION_VERT,
-                        0.18f, 0, 300, 0.5f);
+                        0.2f, 0, 300, 0.5f);
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
@@ -128,45 +128,13 @@ public class Activity360 extends AppCompatActivity {
                     }
                 });
 
-                bitmaps[0] = BitmapUtils.getBitmap(Activity360.this, "PANO0021.JPG");
-                bitmaps[1] = BitmapUtils.getBitmap(Activity360.this, "PANO0022.JPG");
-                bitmaps[2] = BitmapUtils.getBitmap(Activity360.this, "PANO0023.JPG");
-                final String image_7 = ActivityMain.DIR + "image_7.jpg";
-
-                ImagesStitch.stitchImagesFromBitmaps(bitmaps, image_7,
-                        TYPE_PANINI, ImagesStitch.CORRECTION_VERT,
-                        0.18f, 0, 300, 0.5f);
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        largeImageView.setImage(new FileBitmapDecoderFactory(image_7));
-                    }
-                });
-
-                bitmaps[0] = BitmapUtils.getBitmap(Activity360.this, "PANO0024.JPG");
-                bitmaps[1] = BitmapUtils.getBitmap(Activity360.this, "PANO0025.JPG");
-                bitmaps[2] = BitmapUtils.getBitmap(Activity360.this, "PANO0026.JPG");
-                final String image_8 = ActivityMain.DIR + "image_8.jpg";
-
-                ImagesStitch.stitchImagesFromBitmaps(bitmaps, image_8,
-                        TYPE_PANINI, ImagesStitch.CORRECTION_VERT,
-                        0.18f, 0, 300, 0.5f);
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        largeImageView.setImage(new FileBitmapDecoderFactory(image_8));
-                    }
-                });
-
-                bitmaps = new Bitmap[8];
+                bitmaps = new Bitmap[6];
                 bitmaps[0] = BitmapFactory.decodeFile(image_1);
                 bitmaps[1] = BitmapFactory.decodeFile(image_2);
                 bitmaps[2] = BitmapFactory.decodeFile(image_3);
                 bitmaps[3] = BitmapFactory.decodeFile(image_4);
                 bitmaps[4] = BitmapFactory.decodeFile(image_5);
                 bitmaps[5] = BitmapFactory.decodeFile(image_6);
-                bitmaps[6] = BitmapFactory.decodeFile(image_7);
-                bitmaps[7] = BitmapFactory.decodeFile(image_8);
 
                 final String result = ActivityMain.DIR + "result.jpg";
                 ImagesStitch.stitchImagesFromBitmaps(bitmaps, result,
@@ -182,7 +150,8 @@ public class Activity360 extends AppCompatActivity {
                         progressBar.setVisibility(View.GONE);
 
                         Bitmap bitmap = BitmapFactory.decodeFile(result360);
-                        GLPanorama glPanorama = new GLPanorama(Activity360.this);
+//                        largeImageView.setImage(bitmap);
+                        GLPanorama glPanorama = new GLPanorama(PanoramaActivity.this);
                         glPanorama.setGLBitmap(bitmap);
                         mViewGroup.addView(glPanorama);
                     }

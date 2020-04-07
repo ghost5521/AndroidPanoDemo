@@ -14,9 +14,9 @@
         android:theme="@style/AppTheme">
 
         <activity android:name=".VerticalActivity"></activity>
-        <activity android:name=".ActivityNine"></activity>
-        <activity android:name=".Activity360"></activity>
-        <activity android:name=".ActivitySte"></activity>
+        <activity android:name=".NineActivity"></activity>
+        <activity android:name=".PanoramaActivity"></activity>
+        <activity android:name=".StereographicActivity"></activity>
 
 
         <activity android:name=".ActivityMain">

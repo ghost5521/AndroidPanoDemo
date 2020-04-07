@@ -8,10 +8,6 @@
     android:orientation="vertical"
     tools:context=".ActivityMain">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="使用之前请手动授予app存储权限" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_vertical"
