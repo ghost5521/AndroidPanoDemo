@@ -23,9 +23,10 @@
      * @param outPath        输出图片路径
      * @param panoType       全景类型，0球面，1圆柱，2立体，3三明治
      * @param waveCorrection 波段修正，水平或垂直
-     * @param widthRatio     宽度最多裁掉的比例，为0表示宽度不需要裁剪
-     * @param heightRatio    高度最多裁掉的比例,为0表示高度不需要裁剪
-     * @param length         裁剪系数，值越大裁减的越少，参考值300，单位是pixel
+     * @param widthRatio     宽度最多裁掉的比例，范围0~1，为0表示宽度不需要裁剪
+     * @param heightRatio    高度最多裁掉的比例,范围0~1，为0表示高度不需要裁剪
+     * @param length         裁剪系数，值越大裁减的比例越少，参考值300，单位是pixel
+     * @param scale          图像质量，范围0~1，为1时表示以原画进行合成
      * @return 返回长度为3的字节数组
      * [0]合成结果状态码
      * [1]合成后宽度
