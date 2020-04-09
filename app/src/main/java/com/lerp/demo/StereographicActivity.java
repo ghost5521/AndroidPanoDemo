@@ -147,6 +147,26 @@ public class StereographicActivity extends AppCompatActivity {
                         largeImageView.setImage(new FileBitmapDecoderFactory(result));
                     }
                 });
+
+//                Bitmap[] bitmaps = new Bitmap[22];
+//                for (int i = 1; i < 23; i++) {
+//                    bitmaps[i - 1] = BitmapUtils.getBitmap(StereographicActivity.this, i + ".JPG");
+//                }
+//
+//                final String result = ActivityMain.DIR + "rrr.jpg";
+//                Log.d("liuping","开始拼接:" + "");
+//                ImagesStitch.stitchImagesFromBitmaps(bitmaps, result,
+//                        ImagesStitch.TYPE_STEREOGRAPHIC, ImagesStitch.CORRECTION_DEFAULT,
+//                        0f, 0f, 200, 0.5f);
+//
+//                Log.d("liuping","完成:" + "");
+//                runOnUiThread(new Runnable() {
+//                    @Override
+//                    public void run() {
+//                        progressBar.setVisibility(View.GONE);
+//                        largeImageView.setImage(new FileBitmapDecoderFactory(result));
+//                    }
+//                });
             }
         }).start();
 
