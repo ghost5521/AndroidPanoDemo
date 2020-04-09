@@ -12,7 +12,7 @@ public class ImagesStitch {
     public final static int TYPE_SPHERICAL = 0;
     public final static int TYPE_CYLINDRICAL = 1;
     public final static int TYPE_STEREOGRAPHIC = 2;
-    public final static int TYPE_PANINI = 3;
+    public final static int TYPE_LINEAR = 3;
 
     public final static int CORRECTION_DEFAULT = 0;
     public final static int CORRECTION_HORI = 1;
@@ -58,5 +58,5 @@ public class ImagesStitch {
      *               BORDER_REFLECT_101 = 4, //!< `gfedcb|abcdefgh|gfedcba`
      *               BORDER_TRANSPARENT = 5, //!< `uvwxyz|absdefgh|ijklmno`
      */
-    public native static void toPano360(String input, String output, int mode);
+    public native static void toPano360(String input, String output, float topRatio, int mode);
 }
